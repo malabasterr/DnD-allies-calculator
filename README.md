@@ -1,3 +1,11 @@
+NOTE TO SELF:
+
+5 veterans
+2 scouts + 2 lizards
+4 guards
+3 spies
+4 harper rangers
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
