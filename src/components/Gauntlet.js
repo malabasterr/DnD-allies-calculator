@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GauntletStats from '../assets/GauntletStats.jpg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Col, Row, Image } from 'react-bootstrap';
 
-//ADD HIT POINT TRACKER
+//ADD HIT POINT TRACKER ---------------------------------------------
 
 function Gauntlet() {
   // State variables
@@ -78,71 +80,97 @@ function Gauntlet() {
   };
 
   return (
-    <div className='AllyContainer'>
-      <div className='AllyTitle'>Veterans of the Gauntlet</div>
-      <div className='InfoContainer'>
-      <img className='AllyStats' src={GauntletStats} alt="Gauntlet Stat Block" />
-      <div className='AllyNotes'>Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn. </div>
-      </div>
-
-        <div className='AttackButtonContainer'>
-        <button className='AttackButton' id="MainAttackButton" onClick={generateHits}>Longsword attack (holding shield)</button>
-        
-        <Link id="GauntletRangedLink" to="/GauntletRanged">Swap to crossbow</Link>
-        <div className='ModifierButtonContainer'>
-        <button className='AttackButton' id="AdvantageButton" onClick={generateHitsWithAdvantage}>with Advantage</button>
-        <button className='AttackButton' id="DisadvantageButton" onClick={generateHitsWithDisadvantage}>with Disadvantage</button>
-        </div>
-        </div>
-        
-        <div className='ClearButtonContainer'>
-      <button className='ClearButton' onClick={clearAll}>Clear</button>
-      </div>
-
-        <div className='AttackContainer'>
-        <div className='HitListContainer'>
+    <>
+      {/* <div className='AllyContainer'> ------------------------------------*/}
+      <Container>
+        <Row>
+          <div className='AllyTitle'>Veterans of the Gauntlet</div>
+        </Row>
+        <Row>
+          <Col>
+            <Image src={GauntletStats} fluid/>
+          </Col>
+          <Col>
+            <div className='AllyNotes'>Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn. </div>
+          </Col>
+        </Row>
+        <Row>
+          <Row>
+            <Col>
+              <button id="MainAttackButton" onClick={generateHits}>Longsword attack (holding shield)</button>
+            </Col>
+            <Col>
+              <Link id="GauntletRangedLink" to="/GauntletRanged">Swap to crossbow</Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <button id="AdvantageButton" onClick={generateHitsWithAdvantage}>with Advantage</button>
+            </Col>
+            <Col>
+              <button id="DisadvantageButton" onClick={generateHitsWithDisadvantage}>with Disadvantage</button>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <button onClick={clearAll}>Clear</button>
+            </Col>
+          </Row>
+        </Row>
+        <Row>
+        {/* Combine this class and Col? -------------------------- */}
+          <div className='AttackContainer'> 
+          <Col>
             <div className='HitTitle'>To hit</div>
-          <ol className='HitList'>
-            {toHit.map((number) => (
-              <li>{number}{number === 25 ? ' Critical Hit' : ''}{number === 6 ? ' Natural 1' : ''}</li>
-            ))}
-          </ol>
+              <ol>
+                {toHit.map((number) => (
+                  <li>{number}{number === 25 ? ' Critical Hit' : ''}{number === 6 ? ' Natural 1' : ''}</li>
+                ))}
+              </ol>
+          </Col>
           </div>
 
-        <div className='QuestionContainer'>
-          <div className='Question'>Standard hits</div>
-          <div className='NumberButtonContainer'>
-          <button className='NumberButton' onClick={() => generateNormalDamage(1)}>1</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(2)}>2</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(3)}>3</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(4)}>4</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(5)}>5</button>
-          </div>
-          <div className='Question'>Critical hits</div>
-          <div className='NumberButtonContainer'>
-          <button className='NumberButton' onClick={() => generateCritDamage(1)}>1</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(2)}>2</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(3)}>3</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(4)}>4</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(5)}>5</button>
-          </div>
-          </div>
-
-          <div className='DamageListContainer'>
-            <div className='DamageTitle'>Damage</div>
-          <ul className='DamageList'>
-            {critDamage.map((number) => (
-              <li>{number}</li>
-            ))}
-            {normalDamage.map((number) => (
-              <li>{number}</li>
-            ))}
-          </ul>
-          <div className='TotalDamage'>Total Damage: {totalCritDamage + totalNormalDamage}</div>
-          </div>
-          </div>
-
-    </div>
+          <Row>
+            <Col>
+              <div>Standard hits</div>
+              <button onClick={() => generateNormalDamage(1)}>1</button>
+              <button onClick={() => generateNormalDamage(2)}>2</button>
+              <button onClick={() => generateNormalDamage(3)}>3</button>
+              <button onClick={() => generateNormalDamage(4)}>4</button>
+              <button onClick={() => generateNormalDamage(5)}>5</button>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div>Critical hits</div>
+              <button onClick={() => generateCritDamage(1)}>1</button>
+              <button onClick={() => generateCritDamage(2)}>2</button>
+              <button onClick={() => generateCritDamage(3)}>3</button>
+              <button onClick={() => generateCritDamage(4)}>4</button>
+              <button onClick={() => generateCritDamage(5)}>5</button>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className='DamageTitle'>Damage</div>
+              <ul className='DamageList'>
+                {critDamage.map((number) => (
+                  <li>{number}</li>
+                ))}
+                {normalDamage.map((number) => (
+                  <li>{number}</li>
+                ))}
+              </ul>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className='TotalDamage'>Total Damage: {totalCritDamage + totalNormalDamage}</div>
+            </Col>
+          </Row>
+        </Row>
+      </Container>
+    </>
   );
 }
 
