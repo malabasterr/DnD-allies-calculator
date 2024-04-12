@@ -3,10 +3,36 @@
 }
 
 .NoteCol{
-  padding: 2%;
   margin: 3.2%;
-  background-color: #952c1c;
-  color: white;
+}
+
+.SwitchButton{
+  border: none;
+}
+
+.RollsContainer{
+  background-color: rgb(255, 255, 255);
+  border: 1.5px solid rgb(0, 0, 0);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.AttackButton{
+  margin: 1%;
+}
+
+.AttackButtonMiddle{
+  margin: 2%;
+  padding: 2%;
+}
+
+.Standard{
+  margin: 2%;
+}
+
+.Total{
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .DamageList {

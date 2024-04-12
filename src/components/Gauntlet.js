@@ -97,13 +97,13 @@ function Gauntlet() {
             <Image src={GauntletStats} fluid/>
           </Col>
           <Col>
-            <Row>
+            <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
+                <Button size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
               </Col>
-              <Col className="text-start">
-                <Button variant="outline-dark" href="/GauntletRanged">Swap to crossbow</Button>
+              <Col className="text-start d-flex align-items-center">
+                <Button className="border-0" size="sm" variant="outline-dark" href="/GauntletRanged"><p className="fw-normal small mb-0">Swap to crossbow</p></Button>
               </Col>
             </Row>
             <Row>
@@ -116,70 +116,66 @@ function Gauntlet() {
             </Row>
           </Col>
         </Row>
-        <Row>
+        <Row className="Standard">
           <Col className="text-end">
-            <Button  variant="outline-dark" onClick={clearAll}>Clear</Button>
+            <Button variant="light" onClick={clearAll}><p className="fw-normal small mb-0">Clear</p></Button>
           </Col>
         </Row>
-        <Row>
+        <Row className="RollsContainer">
           <Col>
             <Row>
-              <Col className="text-center">To hit</Col>
+              <Col className="fw-bold text-center">To hit</Col>
             </Row>
             <Row>
-              <Col className="text-start">
+              <Col className="text-left">
                 <ol>
                   {toHit.map((number) => (
-                    <li>{number}{number === 25 ? ' Critical Hit' : ''}{number === 6 ? ' Natural 1' : ''}</li>
+                    <li className="fw-normal small mb-0">{number}{number === 25 ? ' Critical Hit' : ''}{number === 6 ? ' Natural 1' : ''}</li>
                   ))}
                 </ol>
               </Col>
             </Row>
           </Col>
-          <Col>
-            <Row>
-              <Col className="text-center">Standard hits</Col>
-            </Row>
-            <Row>
-              <Col className="text-center">
-                <Button size="sm" onClick={() => generateNormalDamage(1)}>1</Button>
-                <Button size="sm" onClick={() => generateNormalDamage(2)}>2</Button>
-                <Button size="sm" onClick={() => generateNormalDamage(3)}>3</Button>
-                <Button size="sm" onClick={() => generateNormalDamage(4)}>4</Button>
-                <Button size="sm" onClick={() => generateNormalDamage(5)}>5</Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="text-center">Critical hits</Col>
-            </Row>
-            <Row>
-              <Col className="text-center">
-                <Button size="sm" onClick={() => generateCritDamage(1)}>1</Button>
-                <Button size="sm" onClick={() => generateCritDamage(2)}>2</Button>
-                <Button size="sm" onClick={() => generateCritDamage(3)}>3</Button>
-                <Button size="sm" onClick={() => generateCritDamage(4)}>4</Button>
-                <Button size="sm" onClick={() => generateCritDamage(5)}>5</Button>
-              </Col>
-            </Row>
+          <Col xs={5} sm={5} md={5} lg={5} xl={5} xxl={5}>
+            <Stack className="AttackButtonMiddle">
+              <div className="text-center Standard">Standard hits</div>
+              <div className="text-center">
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+              </div>
+              <div className="text-center Standard">Critical hits</div>
+              <div className="text-center">
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+              </div>
+            </Stack>
           </Col>
           <Col>
             <Row>
-              <Col className="text-center">Damage</Col>
+              <Col className="fw-bold text-center">Damage</Col>
             </Row>
             <Row>
               <Col className="text-center">
                 {critDamage.map((number) => (
-                  <div>{number}</div>
+                  <div className="fw-normal small mb-0">{number}</div>
                 ))}
                 {normalDamage.map((number) => (
-                  <div>{number}</div>
+                  <div className="fw-normal small mb-0">{number}</div>
                 ))}
               </Col>
             </Row>
           </Col>
         </Row>
-        <Row>
-          <Col className="text-end">Total Damage: {totalCritDamage + totalNormalDamage}</Col>
+        <Row className="Total">
+          <Col className="text-end">
+            Total Damage: <span className='fw-bold'>{totalCritDamage + totalNormalDamage}</span>
+          </Col>
         </Row>
       </Container>
     </>
