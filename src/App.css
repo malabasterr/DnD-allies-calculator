@@ -1,13 +1,26 @@
 .Container{
-  background-color: #f8f1d4;
+  background-color: #eeebe5;
 }
 
-.NoteCol{
-  margin: 3.2%;
+.Title{
+  padding: 1%;
+}
+
+.SmallText{
+  font-size: 85%;
+  padding: 1%;
+}
+
+.Stats{
+  padding-bottom: 2%;
 }
 
 .SwitchButton{
   border: none;
+}
+
+.SwitchText{
+  color: blue;
 }
 
 .RollsContainer{
@@ -15,6 +28,7 @@
   border: 1.5px solid rgb(0, 0, 0);
   padding-top: 1%;
   padding-bottom: 1%;
+  margin-bottom: 3%;
 }
 
 .AttackButton{
@@ -33,6 +47,10 @@
 .Total{
   padding-top: 2%;
   padding-bottom: 2%;
+}
+
+.ClearButton{
+  height: 35px;
 }
 
 .DamageList {

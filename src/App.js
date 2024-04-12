@@ -23,9 +23,7 @@ function App() {
           <Route path="/GauntletRanged" element={<GauntletRanged />} />
           <Route path="/Harpers" element={<Harpers />} />
           <Route path="/LordsAlliance" element={<LordsAlliance />} />
-
         </Routes>
-        <div className="App"></div>
       </main>
     </BrowserRouter>
   );

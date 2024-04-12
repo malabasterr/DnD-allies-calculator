@@ -80,45 +80,48 @@ function Gauntlet() {
   };
 
   return (
-    <>
-      <Container className="Container" fluid>
+<div>
+  <Container className="Container custom-container">
+      <Row>
+      <Col></Col>
+      <Col className="text-center" xs={12} sm={10} md={8} lg={8} xl={10} xxl={10}>
         <Row>
           <Col className="text-center">
-            <h1 className="fw-bold display-4">Veterans of the Gauntlet</h1>
+            <h1 className="Title fw-bold fs-3">Veterans of the Gauntlet</h1>
           </Col>
         </Row>
         <Row>
-          <Col className="NoteCol text-start">
-            <p className="fw-normal small">Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+          <Col className="text-center">
+            <p className="SmallText">Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
           </Col>
         </Row>
-        <Row>
-          <Col className="text-center" xs={12} sm={12} md={8} lg={7} xl={7}>
+        <Row xs={1} sm={1} md={3}>
+        <Col md={2} lg={2}></Col>
+          <Col md={8} lg={8} className="Stats text-center">
             <Image src={GauntletStats} fluid/>
           </Col>
-          <Col>
-            <Row className="align-items-center">
+          <Col md={2} lg={2}></Col>
+        </Row>
+        <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-dark" href="/GauntletRanged"><p className="fw-normal small mb-0">Swap to crossbow</p></Button>
+                <Button className="border-0" size="sm" variant="outline-info" href="/GauntletRanged"><p className="fw-normal small mb-0 SwitchText">Swap to crossbow</p></Button>
               </Col>
-            </Row>
-            <Row>
-              <Col className="text-end">
-                <Button size="sm" variant="outline-success" onClick={generateHitsWithAdvantage}>with Advantage</Button>
-              </Col>
-              <Col className="text-start">
-                <Button size="sm" variant="outline-danger" onClick={generateHitsWithDisadvantage}>with Disadvantage</Button>
-              </Col>
-            </Row>
+        </Row>
+        <Row>
+          <Col className="text-end">
+            <Button className="AttackButton"  size="sm" variant="outline-success" onClick={generateHitsWithAdvantage}>with Advantage</Button>
+          </Col>
+          <Col className="text-start">
+            <Button className="AttackButton"  size="sm" variant="outline-danger" onClick={generateHitsWithDisadvantage}>with Disadvantage</Button>
           </Col>
         </Row>
         <Row className="Standard">
           <Col className="text-end">
-            <Button variant="light" onClick={clearAll}><p className="fw-normal small mb-0">Clear</p></Button>
+            <Button className="ClearButton" variant="light" onClick={clearAll}><p className="SmallText">Clear</p></Button>
           </Col>
         </Row>
         <Row className="RollsContainer">
@@ -130,7 +133,7 @@ function Gauntlet() {
               <Col className="text-left">
                 <ol>
                   {toHit.map((number) => (
-                    <li className="fw-normal small mb-0">{number}{number === 25 ? ' Critical Hit' : ''}{number === 6 ? ' Natural 1' : ''}</li>
+                    <li className="fw-normal fs-6">{number}{number === 25 ? ' Critical Hit' : ''}{number === 6 ? ' Natural 1' : ''}</li>
                   ))}
                 </ol>
               </Col>
@@ -163,22 +166,25 @@ function Gauntlet() {
             <Row>
               <Col className="text-center">
                 {critDamage.map((number) => (
-                  <div className="fw-normal small mb-0">{number}</div>
+                  <div className="fw-normal fs-6">{number}</div>
                 ))}
                 {normalDamage.map((number) => (
-                  <div className="fw-normal small mb-0">{number}</div>
+                  <div className="fw-normal fs-6">{number}</div>
                 ))}
               </Col>
             </Row>
           </Col>
-        </Row>
         <Row className="Total">
           <Col className="text-end">
             Total Damage: <span className='fw-bold'>{totalCritDamage + totalNormalDamage}</span>
           </Col>
         </Row>
+        </Row>
+        </Col>
+        <Col></Col>
+        </Row>
       </Container>
-    </>
+    </div>
   );
 }
 
