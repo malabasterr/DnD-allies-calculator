@@ -3,13 +3,17 @@ import GauntletStats from '../assets/GauntletStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function Gauntlet() {
+function GauntletShortsword() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
   const [totalNormalDamage, setTotalNormalDamage] = useState(0);
   const [critDamage, setCritDamage] = useState([]);
   const [totalCritDamage, setTotalCritDamage] = useState(0);
+  const [normalSSDamage, setNormalSSDamage] = useState([]);
+  const [totalNormalSSDamage, setTotalNormalSSDamage] = useState(0);
+  const [critSSDamage, setCritSSDamage] = useState([]);
+  const [totalCritSSDamage, setTotalCritSSDamage] = useState(0);
 
   // Function to generate to hit numbers
   const generateHits = () => {
@@ -54,6 +58,10 @@ function Gauntlet() {
     setTotalNormalDamage(0);
     setCritDamage([]);
     setTotalCritDamage(0);
+    setNormalSSDamage([]);
+    setTotalNormalSSDamage(0);
+    setCritSSDamage([]);
+    setTotalCritSSDamage(0);
   };
 
   // Function to generate normal damage
@@ -76,6 +84,25 @@ function Gauntlet() {
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
   };
 
+  const generateNormalSSDamage = (num) => {
+    const generatedNumbers = [];
+    for (let i = 0; i < num; i++) {
+      generatedNumbers.push(Math.floor(Math.random() * 6) + 4);
+    }
+    setNormalSSDamage(generatedNumbers);
+    setTotalNormalSSDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
+  };
+
+  // Function to generate critical damage
+  const generateCritSSDamage = (num) => {
+    const generatedNumbers = [];
+    for (let i = 0; i < num; i++) {
+      generatedNumbers.push((Math.floor(Math.random() * 6) + 4) + (Math.floor(Math.random() * 6) + 1));
+    }
+    setCritSSDamage(generatedNumbers);
+    setTotalCritSSDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
+  };
+
   return (
 <div>
   <Container className="Container custom-container">
@@ -93,7 +120,7 @@ function Gauntlet() {
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="SmallText">With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+            <p className="SmallText">While dual-wielding a longsword and shortsword Veterans can make one attack with each.</p>
           </Col>
         </Row>
         <Row xs={1} sm={1} md={3}>
@@ -106,7 +133,7 @@ function Gauntlet() {
         <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Attack<br />(longsword/shortsword are the same)</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
                 <Button className="border-0" size="sm" variant="outline-primary" href="/SwapWeapon"><p className="fw-normal small mb-0 SwitchText">Swap weapon</p></Button>
@@ -142,7 +169,7 @@ function Gauntlet() {
           </Col>
           <Col xs={5} sm={5} md={5} lg={5} xl={5} xxl={5}>
             <Stack className="AttackButtonMiddle">
-              <div className="text-center Standard">Standard hits</div>
+              <div className="text-center SmallText">Standard hits- longsword</div>
               <div className="text-center">
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
@@ -150,13 +177,29 @@ function Gauntlet() {
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
               </div>
-              <div className="text-center Standard">Critical hits</div>
+              <div className="text-center SmallText">Critical hits- longsword</div>
               <div className="text-center">
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+              </div>
+              <div className="text-center SmallText">Standard hits- shortsword</div>
+              <div className="text-center">
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalSSDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalSSDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalSSDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalSSDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalSSDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+              </div>
+              <div className="text-center SmallText">Critical hits- shortsword</div>
+              <div className="text-center">
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritSSDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritSSDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritSSDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritSSDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritSSDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
               </div>
             </Stack>
           </Col>
@@ -172,12 +215,18 @@ function Gauntlet() {
                 {normalDamage.map((number) => (
                   <div className="fw-normal fs-6">{number}</div>
                 ))}
+                {critSSDamage.map((number) => (
+                  <div className="fw-normal fs-6">{number}</div>
+                ))}
+                {normalSSDamage.map((number) => (
+                  <div className="fw-normal fs-6">{number}</div>
+                ))}
               </Col>
             </Row>
           </Col>
         <Row className="Total">
           <Col className="text-end">
-            Total Damage: <span className='fw-bold'>{totalCritDamage + totalNormalDamage}</span>
+            Total Damage: <span className='fw-bold'>{totalCritDamage + totalNormalDamage + totalNormalSSDamage + totalCritSSDamage}</span>
           </Col>
         </Row>
         </Row>
@@ -189,4 +238,4 @@ function Gauntlet() {
   );
 }
 
-export default Gauntlet;
+export default GauntletShortsword;

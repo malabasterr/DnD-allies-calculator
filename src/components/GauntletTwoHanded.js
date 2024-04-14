@@ -3,7 +3,7 @@ import GauntletStats from '../assets/GauntletStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function Gauntlet() {
+function GauntletTwoHanded() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
@@ -60,7 +60,7 @@ function Gauntlet() {
   const generateNormalDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 8) + 4);
+      generatedNumbers.push(Math.floor(Math.random() * 10) + 4);
     }
     setNormalDamage(generatedNumbers);
     setTotalNormalDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -70,7 +70,7 @@ function Gauntlet() {
   const generateCritDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push((Math.floor(Math.random() * 8) + 4) + (Math.floor(Math.random() * 8) + 1));
+      generatedNumbers.push((Math.floor(Math.random() * 10) + 4) + (Math.floor(Math.random() * 10) + 1));
     }
     setCritDamage(generatedNumbers);
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -93,7 +93,7 @@ function Gauntlet() {
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="SmallText">With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+            <p className="SmallText">Veterans can make two two-handed longsword attacks each turn.</p>
           </Col>
         </Row>
         <Row xs={1} sm={1} md={3}>
@@ -106,7 +106,7 @@ function Gauntlet() {
         <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (two-handed)</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
                 <Button className="border-0" size="sm" variant="outline-primary" href="/SwapWeapon"><p className="fw-normal small mb-0 SwitchText">Swap weapon</p></Button>
@@ -189,4 +189,4 @@ function Gauntlet() {
   );
 }
 
-export default Gauntlet;
+export default GauntletTwoHanded;

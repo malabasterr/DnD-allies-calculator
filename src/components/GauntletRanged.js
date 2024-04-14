@@ -85,7 +85,7 @@ function GauntletRanged() {
       <Row className="align-items-center">
         <Col></Col>
           <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-            <h1 className="Title fw-bold fs-3">Veterans of the Gauntlet</h1>
+            <h1 className="Title fw-bold fs-3">Order of the Gauntlet Veterans</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
                 <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
@@ -93,7 +93,7 @@ function GauntletRanged() {
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="SmallText">With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+            <p className="SmallText">Veterans can make one ranged attack per turn.</p>
           </Col>
         </Row>
         <Row xs={1} sm={1} md={3}>
@@ -109,7 +109,7 @@ function GauntletRanged() {
                 <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Heavy crossbow attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-primary" href="/Gauntlet"><p className="fw-normal small mb-0 SwitchText">Swap to Longsword</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/SwapWeapon"><p className="fw-normal small mb-0 SwitchText">Swap weapon</p></Button>
               </Col>
         </Row>
         <Row>

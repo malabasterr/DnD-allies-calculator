@@ -86,3 +86,17 @@
 .LinkBox {
   margin: 1.5%;
 }
+
+.SwapBg {
+  background-color: #eeebe5;
+  height: 100vh;
+  width: 100%;
+}
+
+.LinkBoxSwap {
+  margin-top: 5%;
+}
+
+.SwapButtons{
+  margin-top: 5%;
+}

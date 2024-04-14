@@ -16,6 +16,9 @@ import HarpersRanged from './components/HarpersRanged';
 import HarpersHM from './components/HarpersHM';
 import HarpersRangedHM from './components/HarpersRangedHM';
 import LordsAllianceSpiesSA from './components/LordsAllianceSpiesSA';
+import GauntletTwoHanded from './components/GauntletTwoHanded';
+import GauntletShortsword from './components/GauntletShortsword';
+import SwapWeapon from './components/SwapWeapon';
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
           <Route path="/Lizards" element={<Lizards />} />
           <Route path="/Gauntlet" element={<Gauntlet />} />
           <Route path="/GauntletRanged" element={<GauntletRanged />} />
+          <Route path="/GauntletTwoHanded" element={<GauntletTwoHanded />} />
+          <Route path="/GauntletShortsword" element={<GauntletShortsword />} />
+          <Route path="/SwapWeapon" element={<SwapWeapon />} />
           <Route path="/Harpers" element={<Harpers />} />
           <Route path="/HarpersRanged" element={<HarpersRanged />} />
           <Route path="/HarpersHM" element={<HarpersHM />} />

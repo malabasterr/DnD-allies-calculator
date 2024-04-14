@@ -12,7 +12,7 @@ function Home() {
           <Button variant="dark" className="LinkBox" id="LordsAllianceLink" href="/LordsAlliance">Lord's Alliance Guards</Button>
           <Button variant="dark" className="LinkBox" id="LordsAllianceSpiesLink" href="/LordsAllianceSpies">Lord's Alliance Spies</Button>
           <Button variant="dark" className="LinkBox" id="HarpersLink" href="/Harpers">Harper Rangers</Button>
-          <Button variant="dark" className="LinkBox" id="GauntletLink" href="/Gauntlet">Veterans of the Gauntlet</Button>
+          <Button variant="dark" className="LinkBox" id="GauntletLink" href="/Gauntlet">Order of the Gauntlet Veterans</Button>
           <Button variant="dark" className="LinkBox" id="BruceLink" href="/Bruce">Bruce (Shield Guardian)</Button>
         </Stack>
       </div>
