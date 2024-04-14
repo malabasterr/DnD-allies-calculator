@@ -88,7 +88,7 @@ function GauntletRanged() {
             <h1 className="Title fw-bold fs-3">Veterans of the Gauntlet</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
           </Col>
         </Row>
         <Row>
@@ -109,7 +109,7 @@ function GauntletRanged() {
                 <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Heavy crossbow attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/Gauntlet"><p className="fw-normal small mb-0 SwitchText">Swap to Longsword</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/Gauntlet"><p className="fw-normal small mb-0 SwitchText">Swap to Longsword</p></Button>
               </Col>
         </Row>
         <Row>

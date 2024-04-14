@@ -88,7 +88,7 @@ function LordsAlliance() {
             <h1 className="Title fw-bold fs-3">Lords Alliance Guards</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
           </Col>
         </Row>
         <Row>
@@ -109,7 +109,7 @@ function LordsAlliance() {
                 <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Halberd attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/GauntletRanged"><p className="fw-normal small mb-0 SwitchText"></p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/GauntletRanged"><p className="fw-normal small mb-0 SwitchText"></p></Button>
               </Col>
         </Row>
         <Row>

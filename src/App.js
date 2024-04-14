@@ -11,8 +11,10 @@ import GauntletRanged from './components/GauntletRanged';
 import Harpers from './components/Harpers';
 import LordsAlliance from './components/LordsAlliance';
 import LordsAllianceSpies from './components/LordsAllianceSpies';
-import LordsAllianceSpiesRanged from './components/LordsAllianceSpiesRanged';
 import Lizards from './components/Lizards';
+import HarpersRanged from './components/HarpersRanged';
+import HarpersHM from './components/HarpersHM';
+import HarpersRangedHM from './components/HarpersRangedHM';
 
 function App() {
   return (
@@ -28,9 +30,11 @@ function App() {
           <Route path="/Gauntlet" element={<Gauntlet />} />
           <Route path="/GauntletRanged" element={<GauntletRanged />} />
           <Route path="/Harpers" element={<Harpers />} />
+          <Route path="/HarpersRanged" element={<HarpersRanged />} />
+          <Route path="/HarpersHM" element={<HarpersHM />} />
+          <Route path="/HarpersRangedHM" element={<HarpersRangedHM />} />
           <Route path="/LordsAlliance" element={<LordsAlliance />} />
           <Route path="/LordsAllianceSpies" element={<LordsAllianceSpies />} />
-          <Route path="/LordsAllianceSpiesRanged" element={<LordsAllianceSpiesRanged />} />
         </Routes>
       </main>
     </BrowserRouter>

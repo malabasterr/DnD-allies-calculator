@@ -15,12 +15,8 @@
   padding-bottom: 2%;
 }
 
-.SwitchButton{
-  border: none;
-}
-
-.SwitchText{
-  color: blue;
+.HMText{
+  font-size: smaller;
 }
 
 .RollsContainer{
@@ -51,6 +47,10 @@
 
 .ClearButton{
   height: 35px;
+}
+
+.HuntersMarkButton{
+  height: 60px;
 }
 
 .DamageList {

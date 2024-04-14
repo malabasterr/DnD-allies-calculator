@@ -88,7 +88,7 @@ function Enclave() {
             <h1 className="Title fw-bold fs-3">Emerald Enclave Scouts</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
           </Col>
         </Row>
         <Row>
@@ -109,7 +109,7 @@ function Enclave() {
                 <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>War Pick attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/EnclaveRanged"><p className="fw-normal small mb-0 SwitchText">Swap to crossbow</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/EnclaveRanged"><p className="fw-normal small mb-0 SwitchText">Swap to crossbow</p></Button>
               </Col>
         </Row>
         <Row>

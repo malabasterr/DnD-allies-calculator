@@ -88,7 +88,7 @@ function LordsAllianceSpies() {
             <h1 className="Title fw-bold fs-3">Lords Alliance Spies</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
           </Col>
         </Row>
         <Row>
@@ -106,11 +106,9 @@ function LordsAllianceSpies() {
         <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Shortsword attack</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Attack<br />(shortsword/crossbow are the same)</Button>
               </Col>
-              <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/LordsAllianceSpiesRanged"><p className="fw-normal small mb-0 SwitchText">Switch to crossbow</p></Button>
-              </Col>
+              <Col></Col>
         </Row>
         <Row>
           <Col className="text-end">

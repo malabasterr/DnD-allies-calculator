@@ -88,7 +88,7 @@ function EnclaveRanged() {
             <h1 className="Title fw-bold fs-3">Emerald Enclave Scouts</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
           </Col>
         </Row>
         <Row>
@@ -109,7 +109,7 @@ function EnclaveRanged() {
                 <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Crossbow attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/Enclave"><p className="fw-normal small mb-0 SwitchText">Swap to war pick</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/Enclave"><p className="fw-normal small mb-0 SwitchText">Swap to war pick</p></Button>
               </Col>
         </Row>
         <Row>

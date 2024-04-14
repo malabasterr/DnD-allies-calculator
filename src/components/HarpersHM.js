@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import GauntletStats from '../assets/GauntletStats.jpg';
+import HarperStats from '../assets/HarperStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function Gauntlet() {
+function HarpersHM() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
@@ -60,7 +60,7 @@ function Gauntlet() {
   const generateNormalDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 8) + 4);
+      generatedNumbers.push((Math.floor(Math.random() * 8) + 4) + (Math.floor(Math.random() * 6) + 1));
     }
     setNormalDamage(generatedNumbers);
     setTotalNormalDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -70,7 +70,7 @@ function Gauntlet() {
   const generateCritDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push((Math.floor(Math.random() * 8) + 4) + (Math.floor(Math.random() * 8) + 1));
+      generatedNumbers.push((Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 8) + 4) + (Math.floor(Math.random() * 8) + 1));
     }
     setCritDamage(generatedNumbers);
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -85,7 +85,7 @@ function Gauntlet() {
         <Row className="align-items-center">
         <Col></Col>
           <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-            <h1 className="Title fw-bold fs-3">Veterans of the Gauntlet</h1>
+            <h1 className="Title fw-bold fs-3">Harper Rangers</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
                 <Button className="border-0" size="sm" variant="outline-primary" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
@@ -93,23 +93,25 @@ function Gauntlet() {
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="SmallText">Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+            <p className="SmallText">Note: Harper Rangers can make either two ranged or two melee attacks. They can use <a href='https://www.dndbeyond.com/spells/hunters-mark' target="_blank" rel="noreferrer">Hunter's Mark</a> once per long rest which adds 1d6 to damage rolls.</p>
           </Col>
         </Row>
         <Row xs={1} sm={1} md={3}>
         <Col md={2} lg={2}></Col>
           <Col md={8} lg={8} className="Stats text-center">
-            <Image src={GauntletStats} fluid/>
+            <Image src={HarperStats} fluid/>
           </Col>
           <Col md={2} lg={2}></Col>
         </Row>
         <Row className="align-items-center">
-              <Col></Col>
+          <Col className="text-start d-flex align-items-center"> 
+            <Button className="border-0" size="sm" variant="primary" href="/Harpers"><p className="HMText align-items-center">Hunters Mark<br />ACTIVE</p></Button>
+              </Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Longsword attack (holding shield)</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Longbow attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-primary" href="/GauntletRanged"><p className="fw-normal small mb-0 SwitchText">Swap to crossbow</p></Button>
+                <Button className="border-0" size="sm" variant="outline-primary" href="/HarpersRangedHM"><p className="fw-normal small mb-0 SwitchText">Swap to shortsword</p></Button>
               </Col>
         </Row>
         <Row>
@@ -121,6 +123,8 @@ function Gauntlet() {
           </Col>
         </Row>
         <Row className="Standard">
+        <Col></Col>
+        <Col></Col>
           <Col className="text-end">
             <Button className="ClearButton" variant="light" onClick={clearAll}><p className="SmallText">Clear</p></Button>
           </Col>
@@ -189,4 +193,4 @@ function Gauntlet() {
   );
 }
 
-export default Gauntlet;
+export default HarpersHM;
