@@ -148,7 +148,7 @@ function LordsAlliance() {
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+                {/* <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button> */}
               </div>
               <div className="text-center Standard">Critical hits</div>
               <div className="text-center">
@@ -156,7 +156,7 @@ function LordsAlliance() {
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
                 <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+                {/* <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button> */}
               </div>
             </Stack>
           </Col>

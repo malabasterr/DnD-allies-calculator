@@ -93,7 +93,7 @@ function Gauntlet() {
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="SmallText">Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+            <p className="SmallText">With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
           </Col>
         </Row>
         <Row xs={1} sm={1} md={3}>
