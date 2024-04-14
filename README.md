@@ -1,1 +1,0 @@
-I created this react app to help my D&D group with dice rolls for the additional characters in the campaign Out of The Abyss.
