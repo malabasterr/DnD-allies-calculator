@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import EnclaveStats from '../assets/EnclaveStats.jpg';
+import LizardStats from '../assets/LizardStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function Enclave() {
+function Lizards() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
@@ -60,7 +60,7 @@ function Enclave() {
   const generateNormalDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 8) + 4);
+      generatedNumbers.push(Math.floor(Math.random() * 8) + 3);
     }
     setNormalDamage(generatedNumbers);
     setTotalNormalDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -70,7 +70,7 @@ function Enclave() {
   const generateCritDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push((Math.floor(Math.random() * 8) + 4) + (Math.floor(Math.random() * 8) + 1));
+      generatedNumbers.push((Math.floor(Math.random() * 8) + 3) + (Math.floor(Math.random() * 8) + 1));
     }
     setCritDamage(generatedNumbers);
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -85,7 +85,7 @@ function Enclave() {
         <Row className="align-items-center">
         <Col></Col>
           <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-            <h1 className="Title fw-bold fs-3">Emerald Enclave Scouts</h1>
+            <h1 className="Title fw-bold fs-3">Emerald Enclave Giant Riding Lizards</h1>
           </Col>
           <Col className="text-start d-flex align-items-center">
                 <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
@@ -93,23 +93,23 @@ function Enclave() {
         </Row>
         <Row>
           <Col className="text-center">
-            <p className="SmallText">Note: Scouts make two melee or one ranged attack</p>
+            <p className="SmallText"></p>
           </Col>
         </Row>
         <Row xs={1} sm={1} md={3}>
         <Col md={2} lg={2}></Col>
           <Col md={8} lg={8} className="Stats text-center">
-            <Image src={EnclaveStats} fluid/>
+            <Image src={LizardStats} fluid/>
           </Col>
           <Col md={2} lg={2}></Col>
         </Row>
         <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>War Pick attack</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Bite attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/EnclaveRanged"><p className="fw-normal small mb-0 SwitchText">Swap to crossbow</p></Button>
+                <Button className="border-0" size="sm" variant="outline-info" href="/GauntletRanged"><p className="fw-normal small mb-0 SwitchText"></p></Button>
               </Col>
         </Row>
         <Row>
@@ -189,4 +189,4 @@ function Enclave() {
   );
 }
 
-export default Enclave;
+export default Lizards;

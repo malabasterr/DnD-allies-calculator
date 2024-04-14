@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import GauntletStats from '../assets/GauntletStats.jpg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function Gauntlet() {
+function GauntletRanged() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
@@ -59,7 +60,7 @@ function Gauntlet() {
   const generateNormalDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 10));
+      generatedNumbers.push(Math.floor(Math.random() * 10) + 1);
     }
     setNormalDamage(generatedNumbers);
     setTotalNormalDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -69,79 +70,123 @@ function Gauntlet() {
   const generateCritDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push((Math.floor(Math.random() * 10)) + (Math.floor(Math.random() * 8) + 1));
+      generatedNumbers.push((Math.floor(Math.random() * 10) + 1) + (Math.floor(Math.random() * 10) + 1));
     }
     setCritDamage(generatedNumbers);
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
   };
 
   return (
-    <div className='AllyContainer'>
-      <div className='AllyTitle'>Veterans of the Gauntlet</div>
-      <div className='InfoContainer'>
-      <img className='AllyStats' src={GauntletStats} alt="Gauntlet Stat Block" />
-      <div className='AllyNotes'>Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn. </div>
-      </div>
-
-        <div className='AttackButtonContainer'>
-        <button className='AttackButton' id="MainAttackButton" onClick={generateHits}>Heavy Crossbow Attack</button>
-        
-        <Link id="GauntletRangedLink" to="/Gauntlet">Swap to Longsword</Link>
-        <div className='ModifierButtonContainer'>
-        <button className='AttackButton' id="AdvantageButton" onClick={generateHitsWithAdvantage}>with Advantage</button>
-        <button className='AttackButton' id="DisadvantageButton" onClick={generateHitsWithDisadvantage}>with Disadvantage</button>
-        </div>
-        </div>
-        
-        <div className='ClearButtonContainer'>
-      <button className='ClearButton' onClick={clearAll}>Clear</button>
-      </div>
-
-        <div className='AttackContainer'>
-        <div className='HitListContainer'>
-            <div className='HitTitle'>To hit</div>
-          <ol className='HitList'>
-            {toHit.map((number) => (
-              <li>{number}{number === 23 ? ' Critical Hit' : ''}{number === 4 ? ' Natural 1' : ''}</li>
-            ))}
-          </ol>
-          </div>
-
-        <div className='QuestionContainer'>
-          <div className='Question'>Standard hits</div>
-          <div className='NumberButtonContainer'>
-          <button className='NumberButton' onClick={() => generateNormalDamage(1)}>1</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(2)}>2</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(3)}>3</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(4)}>4</button>
-          <button className='NumberButton' onClick={() => generateNormalDamage(5)}>5</button>
-          </div>
-          <div className='Question'>Critical hits</div>
-          <div className='NumberButtonContainer'>
-          <button className='NumberButton' onClick={() => generateCritDamage(1)}>1</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(2)}>2</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(3)}>3</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(4)}>4</button>
-          <button className='NumberButton' onClick={() => generateCritDamage(5)}>5</button>
-          </div>
-          </div>
-
-          <div className='DamageListContainer'>
-            <div className='DamageTitle'>Damage</div>
-          <ul className='DamageList'>
-            {critDamage.map((number) => (
-              <li>{number}</li>
-            ))}
-            {normalDamage.map((number) => (
-              <li>{number}</li>
-            ))}
-          </ul>
-          <div className='TotalDamage'>Total Damage: {totalCritDamage + totalNormalDamage}</div>
-          </div>
-          </div>
-
+<div>
+  <Container className="Container custom-container">
+      <Row>
+      <Col></Col>
+      <Col className="text-center" xs={12} sm={10} md={8} lg={8} xl={10} xxl={10}>
+      <Row className="align-items-center">
+        <Col></Col>
+          <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
+            <h1 className="Title fw-bold fs-3">Veterans of the Gauntlet</h1>
+          </Col>
+          <Col className="text-start d-flex align-items-center">
+                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="text-center">
+            <p className="SmallText">Note: With a longsword and shield equipped, Veterans will have an increased AC of 19, and can make two one-handed longsword attacks each turn.</p>
+          </Col>
+        </Row>
+        <Row xs={1} sm={1} md={3}>
+        <Col md={2} lg={2}></Col>
+          <Col md={8} lg={8} className="Stats text-center">
+            <Image src={GauntletStats} fluid/>
+          </Col>
+          <Col md={2} lg={2}></Col>
+        </Row>
+        <Row className="align-items-center">
+              <Col></Col>
+              <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Heavy crossbow attack</Button>
+              </Col>
+              <Col className="text-start d-flex align-items-center">
+                <Button className="border-0" size="sm" variant="outline-info" href="/Gauntlet"><p className="fw-normal small mb-0 SwitchText">Swap to Longsword</p></Button>
+              </Col>
+        </Row>
+        <Row>
+          <Col className="text-end">
+            <Button className="AttackButton"  size="sm" variant="outline-success" onClick={generateHitsWithAdvantage}>with Advantage</Button>
+          </Col>
+          <Col className="text-start">
+            <Button className="AttackButton"  size="sm" variant="outline-danger" onClick={generateHitsWithDisadvantage}>with Disadvantage</Button>
+          </Col>
+        </Row>
+        <Row className="Standard">
+          <Col className="text-end">
+            <Button className="ClearButton" variant="light" onClick={clearAll}><p className="SmallText">Clear</p></Button>
+          </Col>
+        </Row>
+        <Row className="RollsContainer">
+          <Col>
+            <Row>
+              <Col className="fw-bold text-center">To hit</Col>
+            </Row>
+            <Row>
+              <Col className="text-left">
+                <ol>
+                  {toHit.map((number) => (
+                    <li className="fw-normal fs-6">{number}{number === 23 ? ' Critical Hit' : ''}{number === 4 ? ' Natural 1' : ''}</li>
+                  ))}
+                </ol>
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={5} sm={5} md={5} lg={5} xl={5} xxl={5}>
+            <Stack className="AttackButtonMiddle">
+              <div className="text-center Standard">Standard hits</div>
+              <div className="text-center">
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+              </div>
+              <div className="text-center Standard">Critical hits</div>
+              <div className="text-center">
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+              </div>
+            </Stack>
+          </Col>
+          <Col>
+            <Row>
+              <Col className="fw-bold text-center">Damage</Col>
+            </Row>
+            <Row>
+              <Col className="text-center">
+                {critDamage.map((number) => (
+                  <div className="fw-normal fs-6">{number}</div>
+                ))}
+                {normalDamage.map((number) => (
+                  <div className="fw-normal fs-6">{number}</div>
+                ))}
+              </Col>
+            </Row>
+          </Col>
+        <Row className="Total">
+          <Col className="text-end">
+            Total Damage: <span className='fw-bold'>{totalCritDamage + totalNormalDamage}</span>
+          </Col>
+        </Row>
+        </Row>
+        </Col>
+        <Col></Col>
+        </Row>
+      </Container>
     </div>
   );
 }
 
-export default Gauntlet;
+export default GauntletRanged;

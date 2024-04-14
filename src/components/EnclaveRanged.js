@@ -3,7 +3,7 @@ import EnclaveStats from '../assets/EnclaveStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function Enclave() {
+function EnclaveRanged() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
@@ -15,7 +15,7 @@ function Enclave() {
   const generateHits = () => {
     const generatedNumbers = [];
     for (let i = 0; i < 5; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 20) + 5);
+      generatedNumbers.push(Math.floor(Math.random() * 20) + 4);
     }
     setToHit(generatedNumbers);
   };
@@ -27,7 +27,7 @@ function Enclave() {
       const roll1 = Math.floor(Math.random() * 20);
       const roll2 = Math.floor(Math.random() * 20);
       const higherResult = Math.max(roll1, roll2);
-      const result = higherResult + 5;
+      const result = higherResult + 4;
       generatedNumbers.push(result);
     }
     setToHit(generatedNumbers);
@@ -41,7 +41,7 @@ function Enclave() {
       const roll1 = Math.floor(Math.random() * 20);
       const roll2 = Math.floor(Math.random() * 20);
       const lowerResult = Math.min(roll1, roll2);
-      const result = lowerResult + 5;
+      const result = lowerResult + 4;
       generatedNumbers.push(result);
     }
     setToHit(generatedNumbers);
@@ -60,7 +60,7 @@ function Enclave() {
   const generateNormalDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 8) + 4);
+      generatedNumbers.push(Math.floor(Math.random() * 10) + 1);
     }
     setNormalDamage(generatedNumbers);
     setTotalNormalDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -70,7 +70,7 @@ function Enclave() {
   const generateCritDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push((Math.floor(Math.random() * 8) + 4) + (Math.floor(Math.random() * 8) + 1));
+      generatedNumbers.push((Math.floor(Math.random() * 10) + 1) + (Math.floor(Math.random() * 10) + 1));
     }
     setCritDamage(generatedNumbers);
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -106,10 +106,10 @@ function Enclave() {
         <Row className="align-items-center">
               <Col></Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
-                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>War Pick attack</Button>
+                <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Crossbow attack</Button>
               </Col>
               <Col className="text-start d-flex align-items-center">
-                <Button className="border-0" size="sm" variant="outline-info" href="/EnclaveRanged"><p className="fw-normal small mb-0 SwitchText">Swap to crossbow</p></Button>
+                <Button className="border-0" size="sm" variant="outline-info" href="/Enclave"><p className="fw-normal small mb-0 SwitchText">Swap to war pick</p></Button>
               </Col>
         </Row>
         <Row>
@@ -134,7 +134,7 @@ function Enclave() {
               <Col className="text-left">
                 <ol>
                   {toHit.map((number) => (
-                    <li className="fw-normal fs-6">{number}{number === 24 ? ' Critical Hit' : ''}{number === 5 ? ' Natural 1' : ''}</li>
+                    <li className="fw-normal fs-6">{number}{number === 23 ? ' Critical Hit' : ''}{number === 4 ? ' Natural 1' : ''}</li>
                   ))}
                 </ol>
               </Col>
@@ -189,4 +189,4 @@ function Enclave() {
   );
 }
 
-export default Enclave;
+export default EnclaveRanged;

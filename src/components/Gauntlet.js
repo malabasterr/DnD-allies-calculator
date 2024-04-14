@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import GauntletStats from '../assets/GauntletStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
-
-//ADD HIT POINT TRACKER ---------------------------------------------
 
 function Gauntlet() {
   // State variables
@@ -85,9 +82,13 @@ function Gauntlet() {
       <Row>
       <Col></Col>
       <Col className="text-center" xs={12} sm={10} md={8} lg={8} xl={10} xxl={10}>
-        <Row>
-          <Col className="text-center">
+        <Row className="align-items-center">
+        <Col></Col>
+          <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
             <h1 className="Title fw-bold fs-3">Veterans of the Gauntlet</h1>
+          </Col>
+          <Col className="text-start d-flex align-items-center">
+                <Button className="border-0" size="sm" variant="outline-info" href="/"><p className="fw-normal small mb-0 SwitchText">Switch Ally Group</p></Button>
           </Col>
         </Row>
         <Row>
