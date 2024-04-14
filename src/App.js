@@ -15,6 +15,7 @@ import Lizards from './components/Lizards';
 import HarpersRanged from './components/HarpersRanged';
 import HarpersHM from './components/HarpersHM';
 import HarpersRangedHM from './components/HarpersRangedHM';
+import LordsAllianceSpiesSA from './components/LordsAllianceSpiesSA';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/HarpersRangedHM" element={<HarpersRangedHM />} />
           <Route path="/LordsAlliance" element={<LordsAlliance />} />
           <Route path="/LordsAllianceSpies" element={<LordsAllianceSpies />} />
+          <Route path="/LordsAllianceSpiesSA" element={<LordsAllianceSpiesSA />} />
         </Routes>
       </main>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import SpyStats from '../assets/SpyStats.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row, Image, Button, Stack } from 'react-bootstrap';
 
-function LordsAllianceSpies() {
+function LordsAllianceSpiesSA() {
   // State variables
   const [toHit, setToHit] = useState([]);
   const [normalDamage, setNormalDamage] = useState([]);
@@ -60,7 +60,7 @@ function LordsAllianceSpies() {
   const generateNormalDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push(Math.floor(Math.random() * 6) + 3);
+      generatedNumbers.push((Math.floor(Math.random() * 6) + 3) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1));
     }
     setNormalDamage(generatedNumbers);
     setTotalNormalDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -70,7 +70,7 @@ function LordsAllianceSpies() {
   const generateCritDamage = (num) => {
     const generatedNumbers = [];
     for (let i = 0; i < num; i++) {
-      generatedNumbers.push((Math.floor(Math.random() * 6) + 3) + (Math.floor(Math.random() * 6) + 1));
+      generatedNumbers.push((Math.floor(Math.random() * 6) + 3) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1));
     }
     setCritDamage(generatedNumbers);
     setTotalCritDamage(generatedNumbers.reduce((acc, curr) => acc + curr, 0));
@@ -105,7 +105,7 @@ function LordsAllianceSpies() {
         </Row>
         <Row className="align-items-center">
         <Col className="text-start d-flex align-items-center"> 
-            <Button href="/LordsAllianceSpiesSA" className="border-0" size="sm" variant="outline-primary"><p className="HMText align-items-center">Sneak Attack<br />(inactive)</p></Button>
+            <Button href="/LordsAllianceSpies" className="border-0" size="sm" variant="primary"><p className="HMText align-items-center">Sneak Attack<br />ACTIVE</p></Button>
               </Col>
               <Col className="text-center" xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
                 <Button className="AttackButton" size="sm" variant="outline-dark" onClick={generateHits}>Attack<br />(shortsword/crossbow are the same)</Button>
@@ -144,19 +144,19 @@ function LordsAllianceSpies() {
             <Stack className="AttackButtonMiddle">
               <div className="text-center Standard">Standard hits</div>
               <div className="text-center">
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateNormalDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateNormalDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateNormalDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateNormalDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateNormalDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
               </div>
               <div className="text-center Standard">Critical hits</div>
               <div className="text-center">
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
-                <Button className="AttackButton" variant="outline-secondary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateCritDamage(1)}><p className="fw-normal small mb-0">1</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateCritDamage(2)}><p className="fw-normal small mb-0">2</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateCritDamage(3)}><p className="fw-normal small mb-0">3</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateCritDamage(4)}><p className="fw-normal small mb-0">4</p></Button>
+                <Button className="AttackButton" variant="primary" size="sm" onClick={() => generateCritDamage(5)}><p className="fw-normal small mb-0">5</p></Button>
               </div>
             </Stack>
           </Col>
@@ -189,4 +189,4 @@ function LordsAllianceSpies() {
   );
 }
 
-export default LordsAllianceSpies;
+export default LordsAllianceSpiesSA;
