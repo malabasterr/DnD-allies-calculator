@@ -56,3 +56,32 @@
 .DamageList {
   list-style-type: none;
 }
+
+/* Styles for Homepage */
+
+.HomeContainer {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centering horizontally */
+  align-items: center; /* Centering vertically */
+}
+
+.HomeBg {
+  background-image: url("./assets/OOTA-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.HomeTitle{
+  color: white;
+  margin: 5%;
+  font-size: xx-large;
+}
+
+.LinkBox {
+  margin: 2%;
+}
